@@ -2,7 +2,6 @@
 
 mod raad;
 
-
 fn main() {
     let mut vec = Vec::new();
     println!("{}, {}", vec.len(), vec.capacity());
@@ -45,5 +44,24 @@ fn main() {
 
     let arr = [1, 2, 3]; // stack
     let boxed: Box<[i32]> = Box::new([1, 2, 3]);
+    
+    println!("");
+    println!("");
+    println!("");
+
+    let mut rvec: raad::Vec<raad::Option<i32>> = raad::Vec::new();
+    println!("{}, {}", rvec.len(), rvec.capacity());
+    rvec.push(raad::Option::Some(1));
+    println!("{}, {}", rvec.len(), rvec.capacity());
+    rvec.push(raad::Option::Some(2));
+    println!("{}, {}", rvec.len(), rvec.capacity());
+    rvec.push(raad::Option::Some(3));
+    println!("{}, {}", rvec.len(), rvec.capacity());
+
+    //rvec.extend([raad::Option::Some(4), raad::Option::Some(5)]);
+    //println!("{}, {}", rvec.len(), rvec.capacity());
+    //rvec.extend([raad::Option::Some(6), raad::Option::Some(7)]);
+    //rvec.extend([raad::Option::Some(8), raad::Option::Some(9)]);
+    //println!("{}, {}", rvec.len(), rvec.capacity());
 }
 
