@@ -44,6 +44,6 @@ fn main() {
     println!("{}, {}", vec4.len(), vec4.capacity());
 
     let arr = [1, 2, 3]; // stack
-    let boxed: Box<i32> = Box::new([1, 2, 3]);
+    let boxed: Box<[i32]> = Box::new([1, 2, 3]);
 }
 
