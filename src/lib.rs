@@ -13,14 +13,14 @@ mod tests {
 
     #[test]
     fn new_vec_is_empty() {
-        let vec = vec::Vec::new();
+        let vec: vec::Vec<i32> = vec::Vec::new();
         assert_eq!(vec.len(), 0);
         assert_eq!(vec.capacity(), 0);
     }
 
     #[test]
     fn reserve_exact_reallocates_memory() {
-        let mut vec = vec::Vec::new();
+        let mut vec: vec::Vec<i32> = vec::Vec::new();
         let old_ptr = vec.as_ptr();
         vec.reserve_exact(20);
         let new_ptr = vec.as_ptr();
@@ -29,14 +29,14 @@ mod tests {
 
     #[test]
     fn reserve_exact_increases_capacity() {
-        let mut vec = vec::Vec::new();
+        let mut vec: vec::Vec<i32> = vec::Vec::new();
         vec.reserve_exact(20);
         assert_eq!(vec.capacity(), 20);
     }
 
     #[test]
     fn reserve_exact_increases_capacity_once() {
-        let mut vec = vec::Vec::new();
+        let mut vec: vec::Vec<i32> = vec::Vec::new();
         vec.reserve_exact(30);
         assert_eq!(vec.capacity(), 30);
         vec.reserve_exact(20);
@@ -45,7 +45,7 @@ mod tests {
 
     #[test]
     fn reserve_increases_capacity() {
-        let mut vec = vec::Vec::new();
+        let mut vec: vec::Vec<i32> = vec::Vec::new();
         vec.reserve(1);
         assert!(vec.capacity() >= 1);
     }

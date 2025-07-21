@@ -2,19 +2,19 @@ use std::{
     alloc::{self, Layout},
 };
 
-pub struct Vec {
+pub struct Vec<T> {
     len: usize,
     capacity: usize,
-    ptr: *mut i32,
+    ptr: *mut T,
 }
 
-impl Vec {
+impl<T> Vec<T> {
     pub fn new() -> Self {
         unsafe {
             Self {
                 len: 0,
                 capacity: 0,
-                ptr: alloc::alloc(Layout::array::<i32>(0).unwrap()) as *mut i32,
+                ptr: alloc::alloc(Layout::array::<T>(0).unwrap()) as *mut T,
             }
         }
     }
@@ -27,7 +27,7 @@ impl Vec {
         self.capacity
     }
 
-    pub fn get(&self, index: usize) -> Option<i32> {
+    pub fn get(&self, index: usize) -> Option<T> {
         if index >= self.len {
             return None;
         }
@@ -41,14 +41,14 @@ impl Vec {
         if required <= self.capacity { return; }
 
         self.ptr = unsafe {
-            let new_ptr = alloc::alloc(alloc::Layout::array::<i32>(required).unwrap()) as *mut i32;
+            let new_ptr = alloc::alloc(alloc::Layout::array::<T>(required).unwrap()) as *mut T;
             for i in 0..self.len {
                 let val = self.ptr.add(i).read();
                 new_ptr.add(i).write(val);
             }
-            alloc::dealloc(self.ptr as *mut u8,  Layout::array::<i32>(self.capacity).unwrap());
+            alloc::dealloc(self.ptr as *mut u8,  Layout::array::<T>(self.capacity).unwrap());
             new_ptr
-        } as *mut i32;
+        } as *mut T;
         self.capacity = required;
     }
 
@@ -64,7 +64,7 @@ impl Vec {
         }
     }
 
-    pub fn push(&mut self, value: i32) {
+    pub fn push(&mut self, value: T) {
         self.reserve(1);
         unsafe {
             self.ptr.add(self.len).write(value);
@@ -72,16 +72,16 @@ impl Vec {
         self.len += 1;
     }
 
-    pub fn as_ptr(&self) -> *const i32 {
+    pub fn as_ptr(&self) -> *const T {
         self.ptr
     }
 
 }
 
-impl Drop for Vec {
+impl<T> Drop for Vec<T> {
     fn drop(&mut self) {
         unsafe {
-            alloc::dealloc(self.ptr as *mut u8,  Layout::array::<i32>(self.capacity).unwrap());
+            alloc::dealloc(self.ptr as *mut u8,  Layout::array::<T>(self.capacity).unwrap());
         }
     }
 }

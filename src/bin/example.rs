@@ -1,19 +1,19 @@
 use rdsa;
 
 fn main() {
-    let mut vec: rdsa::Vec = rdsa::Vec::new();
-    vec.push(1);
-    println!("{}, {}, {:?}", vec.len(), vec.capacity(), vec.get(vec.len() -1));
-    vec.push(2);
-    println!("{}, {}, {:?}", vec.len(), vec.capacity(), vec.get(vec.len() -1));
-    vec.push(3);
-    println!("{}, {}, {:?}", vec.len(), vec.capacity(), vec.get(vec.len() -1));
-    vec.push(4);
-    println!("{}, {}, {:?}", vec.len(), vec.capacity(), vec.get(vec.len() -1));
-    vec.push(5);
-    println!("{}, {}, {:?}", vec.len(), vec.capacity(), vec.get(vec.len() -1));
-    vec.push(6);
-    println!("{}, {}, {:?}", vec.len(), vec.capacity(), vec.get(vec.len() -1));
+    //let mut vec: rdsa::Vec = rdsa::Vec::new();
+    //vec.push(1);
+    //println!("{}, {}, {:?}", vec.len(), vec.capacity(), vec.get(vec.len() -1));
+    //vec.push(2);
+    //println!("{}, {}, {:?}", vec.len(), vec.capacity(), vec.get(vec.len() -1));
+    //vec.push(3);
+    //println!("{}, {}, {:?}", vec.len(), vec.capacity(), vec.get(vec.len() -1));
+    //vec.push(4);
+    //println!("{}, {}, {:?}", vec.len(), vec.capacity(), vec.get(vec.len() -1));
+    //vec.push(5);
+    //println!("{}, {}, {:?}", vec.len(), vec.capacity(), vec.get(vec.len() -1));
+    //vec.push(6);
+    //println!("{}, {}, {:?}", vec.len(), vec.capacity(), vec.get(vec.len() -1));
 
     //vec.extend([rdsa::option::Option::Some(4), rdsa::option::Option::Some(5)]);
     //println!("{}, {}", vec.len(), vec.capacity());
@@ -21,8 +21,10 @@ fn main() {
     //vec.extend([rdsa::option::Option::Some(8), rdsa::option::Option::Some(9)]);
     //println!("{}, {}", vec.len(), vec.capacity());
 
+    // TODO: direct access
     //let m = vec[2];
 
+    // TODO: iterator
     //for e in &vec {
     //    println!("{e:?}");
     //}
@@ -30,6 +32,7 @@ fn main() {
     //println!("{:?}", vec.pop());
 
     //let vec1 = Vec::from([1, 2, 3]);
+    // TODO vec!
     //let vec2 = vec![[1, 2, 3]];
     //let vec3 = vec![0; 5];
     //let mut vec4: Vec<u8> = Vec::with_capacity(5);
