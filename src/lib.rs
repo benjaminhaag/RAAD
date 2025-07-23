@@ -77,4 +77,12 @@ mod tests {
         assert!(vec.capacity() >= 1);
     }
 
+    #[test]
+    fn macro_creates_vector_with_content() {
+        let v: vec::Vec<usize> = rdsavec![0, 1, 2];
+        for i in 0..3 {
+            assert_eq!(i, v.get(i).unwrap());
+        }
+    }
+
 }
