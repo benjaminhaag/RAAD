@@ -89,7 +89,7 @@ impl<T> Drop for Vec<T> {
 
 #[macro_export]
 macro_rules! rdsavec {
-    ( $( $x:expr ),* ) => {
+    ( [ $( $x:expr ),* ] ) => {
         {
             let mut temp_vec = Vec::new();
             $(
